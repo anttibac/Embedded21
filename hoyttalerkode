@@ -1,0 +1,12 @@
+from subprocess import call
+import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(38, GPIO.IN)
+
+while True:
+	i=GPIO.input(38)
+	if i==1:
+		call(["espeak","-s140 -ven+18 -z","This is private property, you are being watched"])
+
